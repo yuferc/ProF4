@@ -1,4 +1,4 @@
-
+# Sistema Integral de Gestión de Clientes, servicios y reservas, Software FJ
 
 from excepciones import DatoInvalidoError
 
@@ -16,7 +16,7 @@ class Cliente:
         self.set_documento(documento)
         self.set_correo(correo)
 
-#Ingreso de nombre, se valida que no esté vacío y que tenga al menos 3 caracteres
+# Ingreso de nombre, se valida que no esté vacío y que tenga al menos 3 caracteres
     def get_nombre(self):
         return self.__nombre
 
@@ -28,7 +28,7 @@ class Cliente:
         if not nombre or len(nombre.strip()) < 3:
             raise DatoInvalidoError("El nombre debe tener al menos 3 caracteres")
 
-#Ingreso de documento de identidad, se valida que sea un número y que tenga una longitud mínima y máxima
+# Ingreso de documento de identidad, se valida que sea un número y que tenga una longitud mínima y máxima
     def get_documento(self):
         return self.__documento
 
@@ -38,9 +38,14 @@ class Cliente:
 
     def validar_documento(self, documento):
         # TODO: ¿solo números? ¿longitud mínima y máxima? ¿no vacío?
-        pass
+        if not documento:
+            raise DatoInvalidoError("El documento no puede estar vacío")
+        if not documento.isdigit():
+            raise DatoInvalidoError("El documento debe contener solo números")
+        if len(documento) < 8 or len(documento) > 15:
+            raise DatoInvalidoError("El documento debe tener entre 8 y 15 caracteres")
 
-#Ingreso de correo electrónico, se valida que contenga un "@" y un punto después del "@"
+# Ingreso de correo electrónico, se valida que contenga un "@" y un punto después del "@"
     def get_correo(self):
         return self.__correo
 
@@ -50,7 +55,12 @@ class Cliente:
 
     def validar_correo(self, correo):
         # TODO: ¿contiene "@"? ¿tiene un punto después del "@"? ¿no vacío?
-        pass
+        if not correo:
+            raise DatoInvalidoError("El correo no puede estar vacío")
+        if "@" not in correo:
+            raise DatoInvalidoError("El correo debe contener un '@'")
+        if "." not in correo.split("@")[1]:
+            raise DatoInvalidoError("El correo debe contener un punto después del '@'")
 
     # ---------- MOSTRAR ----------
     def mostrar_datos(self):
