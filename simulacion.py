@@ -1,6 +1,6 @@
 # simulacion.py - Simulación de operaciones de Software FJ
 from cliente import Cliente
-from servicio import ReservaSala
+from servicio import AlquilerEquipo, ReservaSala
 from reserva import Reserva
 from excepciones import ErrorSoftwareFJ
 from logger_config import registrar_evento, registrar_error
@@ -33,10 +33,27 @@ def ejecutar(numero, descripcion, operacion):
     finally:
         print(f"Fin de la operación {numero}")
 
+   
+def operacion_2():
+    """Cliente inválido: nombre demasiado corto."""
+    Cliente("Al", "12345678", "ana@correo.com")   # debe lanzar DatoInvalidoError
 
+
+def operacion_3():
+    """Alquiler de equipo exitoso con descuento."""
+    cliente = Cliente("Carlos Gómez", "87654321", "carlos@correo.com")
+    servicio = AlquilerEquipo("Proyector", 30000, 3)
+    reserva = Reserva(cliente, servicio, 3)
+    reserva.confirmar()
+    costo = reserva.procesar()
+    reserva.mostrar_reserva()
+    registrar_evento(f"Alquiler de {cliente.get_nombre()} procesado. Costo: {costo}") 
+    
 def ejecutar_simulaciones():
     ejecutar(1, "Reserva de sala exitosa", operacion_1)
-
-
+    ejecutar(2, "Cliente con nombre inválido", operacion_2)
+    ejecutar(3, "Alquiler de equipo exitoso", operacion_3)
+    
+    
 if __name__ == "__main__":
     ejecutar_simulaciones()

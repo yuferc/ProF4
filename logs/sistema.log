@@ -1,0 +1,15 @@
+2026-11-20 21:56:47,476 | INFO | Reserva de Ana Pérez procesada. Costo: 119000.0
+2026-11-20 21:56:47,476 | INFO | Operación 1 completada
+2026-11-20 22:12:47,093 | INFO | Reserva de Ana Pérez procesada. Costo: 119000.0
+2026-11-20 22:12:47,093 | INFO | Operación 1 completada
+2026-11-20 22:17:11,379 | INFO | Reserva de Ana Pérez procesada. Costo: 119000.0
+2026-11-20 22:17:11,380 | INFO | Operación 1 completada
+2026-11-20 22:17:34,726 | INFO | Reserva de Ana Pérez procesada. Costo: 119000.0
+2026-11-20 22:17:34,727 | INFO | Operación 1 completada
+2026-11-20 22:19:15,063 | INFO | Reserva de Ana Pérez procesada. Costo: 119000.0
+2026-11-20 22:19:15,063 | INFO | Operación 1 completada
+2026-11-20 22:20:05,990 | INFO | Reserva de Ana Pérez procesada. Costo: 119000.0
+2026-11-20 22:20:05,991 | INFO | Operación 1 completada
+2026-11-20 22:20:05,991 | ERROR | Operación 2: error inesperado DatoInvalidoError - El nombre debe tener al menos 3 caracteres
+2026-11-20 22:20:05,991 | INFO | Alquiler de Carlos Gómez procesado. Costo: 107100.0
+2026-11-20 22:20:05,991 | INFO | Operación 3 completada
