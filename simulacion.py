@@ -16,6 +16,7 @@ def operacion_1():
     reserva.mostrar_reserva()
     registrar_evento(f"Reserva de {cliente.get_nombre()} procesada. Costo: {costo}")
 
+#Varias operaciones de prueba que pueden generar errores controlados o inesperados
 
 def ejecutar(numero, descripcion, operacion):
     """Ejecuta una operación sin que un error detenga el programa."""
@@ -48,12 +49,46 @@ def operacion_3():
     costo = reserva.procesar()
     reserva.mostrar_reserva()
     registrar_evento(f"Alquiler de {cliente.get_nombre()} procesado. Costo: {costo}") 
+
+def operacion_4():
+    """Reserva inválida: duración negativa."""
+    cliente = Cliente("Laura Martínez", "11223344", "laura@correo.com")
+    servicio = ReservaSala("Sala B", 60000, -1)  # duración negativa
+    reserva = Reserva(cliente, servicio, -1)
+    reserva.confirmar()
+    costo = reserva.procesar()
+    reserva.mostrar_reserva()
+    registrar_evento(f"Reserva de {cliente.get_nombre()} procesada. Costo: {costo}")
     
+def operacion_5():
+    
+    
+    """Reserva inválida: cliente con correo inválido."""
+    cliente = Cliente("Pedro López", "55667788", "pedro@correo")  # correo inválido
+    servicio = ReservaSala("Sala C", 70000, 2)
+    reserva = Reserva(cliente, servicio, 2)
+    reserva.confirmar()
+    costo = reserva.procesar()
+    reserva.mostrar_reserva()
+    registrar_evento(f"Reserva de {cliente.get_nombre()} procesada. Costo: {costo}")
+    
+def operacion_6():
+    """Reserva inválida: servicio con precio base negativo."""
+    cliente = Cliente("María Fernández", "99887766", "maria@correo.com")
+    servicio = ReservaSala("Sala D", -50000, 2)  # precio base negativo
+    reserva = Reserva(cliente, servicio, 2)
+    reserva.confirmar()
+    costo = reserva.procesar()
+    reserva.mostrar_reserva()
+    registrar_evento(f"Reserva de {cliente.get_nombre()} procesada. Costo: {costo}")
+
 def ejecutar_simulaciones():
     ejecutar(1, "Reserva de sala exitosa", operacion_1)
     ejecutar(2, "Cliente con nombre inválido", operacion_2)
     ejecutar(3, "Alquiler de equipo exitoso", operacion_3)
-    
-    
+    ejecutar(4, "Reserva con duración negativa", operacion_4)
+    ejecutar(5, "Reserva con correo inválido", operacion_5)
+    ejecutar(6, "Reserva con precio base negativo", operacion_6)
+
 if __name__ == "__main__":
     ejecutar_simulaciones()
