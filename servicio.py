@@ -1,3 +1,5 @@
+
+
 # servicio.py - Servicios de Software FJ
 from abc import ABC, abstractmethod
 from excepciones import DatoInvalidoError   # si aún no existe, usa ValueError
